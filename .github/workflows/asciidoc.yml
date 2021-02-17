@@ -23,10 +23,11 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
+        path:&filepath
         shellcommand: "asciidoctor **.adoc" 
     # Use the output from the documents step
     - name: Save AsciiDoc step
       uses: actions/upload-artifact@v1
       with:
         name: Output-document
-        path: ./
+        path: .filepath
