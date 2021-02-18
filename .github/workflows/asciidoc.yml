@@ -23,7 +23,7 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
-        shellcommand: "./.github/workflows/asciidoc.sh" 
+        shellcommand: "bash ./.github/workflows/asciidoc.sh" 
     # Use the output from the documents step
     - name: Save AsciiDoc step
       uses: actions/upload-artifact@v1
