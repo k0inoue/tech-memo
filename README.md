@@ -159,7 +159,7 @@ Github Actionの成果物が標準で出力される期間限定(90日間)の領
  ![GitHub Artifact](https://docs.github.com/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png "GitHub Artifact")
 
  詳細は下記参照
-```
-https://docs.github.com/ja/actions/guides/storing-workflow-data-as-artifacts
-```
+
+[GitHub Artifact](https://docs.github.com/ja/actions/guides/storing-workflow-data-as-artifacts)
+
  
