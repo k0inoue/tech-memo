@@ -151,3 +151,15 @@ adocを変換したファイルは、同じディレクトリ構成で全て拡�
 今のworkflowでは、成果物がGitHubのArtifactという期間限定の保存領域に出力されます。  
 成果物(html)用のフォルダかリポジトリを作ってそこにプッシュするか、Packagesに保存するような形に変えたほうが良さそうな気がしてます。
 
+## GitHub Artifactについて
+Github Actionの成果物が標準で出力される期間限定(90日間)の領域
+
+該当のGithub Actionの一番下に以下のような形で作成される。
+
+ ![GitHub Artifact](https://docs.github.com/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png "GitHub Artifact")
+
+ 詳細は下記参照
+```
+https://docs.github.com/ja/actions/guides/storing-workflow-data-as-artifacts
+```
+ 
