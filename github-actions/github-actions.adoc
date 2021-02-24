@@ -31,7 +31,56 @@ GitHub Actionsでは、実行する処理とその処理を実行する条件を
 リポジトリ内の.github/workflowsディレクトリ内に、YAML形式で記述したワークフローを作成することで実行できるようになる。
 
 == Github Actionで出来ること
+* シェル経由で任意のコマンドを実行する
+* 「Action（アクション）」という、あらかじめ定義済みの処理を呼び出す
+
+=== GitHubが提供しているActionについて
+
+.GitHubが提供しているAction
+|====
+| Action名 | 説明
+|setup-node	|Node.js環境のセットアップを行う
+|github-script	|GitHub APIを使ってGitHubの各種機能にアクセスする
+|upload-artifact	|指定したファイルを「artifact」として保存する
+|cache	|生成物をキャッシュして処理を高速化する
+|checkout	|リポジトリからファイルをチェックアウトする
+|setup-ruby	|Ruby環境のセットアップを行う
+|setup-java	|Java環境のセットアップを行う
+|setup-python	|Python環境のセットアップを行う
+|upload-release-asset	|GitHubのリリース機能を使ってファイルを公開する
+|setup-dotnet	|.NET core環境のセットアップを行う
+|setup-elixir	|Elixir環境のセットアップを行う
+|create-release	|リリースを作成する
+|setup-go	|Go環境のセットアップを行う
+|labeler	|GitHub上でのラベルを管理する「.github/labeler.yml」ファイルを作成する
+|download-artifact	|「artifact」として保存されているファイルをダウンロードする
+|stale	|一定期間活動のないイシューやプルリクエストを閉じる処理を行う
+|first-interaction	|初めてプルリクエストやイシューを登録したユーザーに対しメッセージを出す
+|setup-haskell	|Haskell環境のセットアップを行う
+|====
+これ以外にも、ユーザーが独自にActionを作成することも可能だ。ActionについてはNode.jsで記述できるほか、Dockerコンテナを利用して任意の処理を実行させるようなものも作成できる。
+
+== GitHub Actionにおける制約
+
+GitHub Actionsは仕様としてはかなり自由度が高く、GitHubの提供するサーバー上でほぼ任意の処理を実行できる。そのため、利用に対してはいくつかの制約が設けられている。
+
+* 同時に（並列で）実行できるワークフローは1リポジトリあたり20まで
+* ワークフロー内で実行されるジョブの最大実行時間は6時間まで
+
+.GitHub Actionsのプライベートリポジトリにおけるストレージ/実行時間制限
+|====
+|プラン	|並行処理できる最大ジョブ数 |利用できる最大ストレージ容量	|月あたりに利用できるジョブ実行時間上限
+|Free	|20 |500MB	|2000分
+|Pro	|40 |1GB	|3000分
+|Team	|60 |2GB	|10000分
+|Enterprise Cloud	|180 |50GB	|50000分
+|====
+1つのアカウントで同時に（並列で）実行できるmacOSジョブ（macOS環境内で実行されるジョブ）の最大数は無料プラン（Free版）およびProプラン、Teamプランでは5、Enterpriseプランでは15
 
 
-
+[NOTE]
+====
+* なお、この実行時間上限については、Windows環境で実行されるジョブは2倍、macOS環境で実行されるジョブは10倍で計算される。つまり、Freeプランで、macOS環境上にてジョブを実行する場合、月あたりの上限は200分となる。
+* 月あたりに利用できるジョブ実行時間上限については非公開(private)なリポジトリに対して行われるもので、公開されている(Publicな)リポジトリについては無制限である
+====
 
