@@ -1,0 +1,11 @@
+name: ワークフローの名前
+
+on:
+    push: masterブランチにpushした時をトリガーとする
+
+jobs:
+    build: ジョブをubuntuの最新版で実行する
+    steps:
+        uses: リポジトリをチェックアウトする
+        name: ジョブの名前
+        run: echoコマンドで「Hello, world!」と出力する

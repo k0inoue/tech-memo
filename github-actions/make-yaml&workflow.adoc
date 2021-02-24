@@ -1,0 +1,71 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:docname: = asciidocの使い方
+:author: 株式会社エフェクト ロボット開発チーム
+:revnumber: 0.1
+:revdate: 2021/02/24
+
+
+= YAMLファイルの作成とワークフローの実行について
+
+== はじめに
+
+　.git/workflows/にYAMLファイルを作成するだけでGitHub Actionsを使用することが可能。
+以下にオンライン上でYAMLファイルを作成する手順を示す。
+
+== YAMLファイルの作成とワークフローの実行
+まずはGitHub Accountにログインして新しくレポジトリを作成します。
+
+image::1.01.jpg[]
+
+作成したレポジトリに行き、Actionsを選択。
+
+image::1.02.jpg[]
+
+色々ワークフローが表示されるので、一番上のSimple workflowを選択。
+
+image::1.03.jpg[]
+
+レポジトリの.github/workflows/配下にYAMLファイルが作成されます。
+
+デフォルトのYAMLファイルだと初心者にとっては難しく感じると思うので、一旦コメントと今回必要ではない部分を消して、もう少しシンプルにしてみます。
+
+
+* github_actions/.github/workflows/blank.yml 
+
+[source,yaml]
+----
+include::./blank.yml[]
+----
+
+[blue]*on* 部分がジョブを実行するトリガー、 [blue]*jobs* 部分がトリガーで実行されるジョブが記述されています。
+各項目の内容をまとめておきます。
+
+----
+include::./blank copy.yml[]
+----
+
+YAMLファイルができたら 画面右上にある [green]*start commit* をクリックして、ジョブを実行してみましょう。
+
+ワークフローが実行されたかどうかはレポジトリのActionsで確認することができます。
+左画面のAll Workflowsの下に先ほど実行したワークフローがあるので、クリックしてbuildを選択。
+全てのジョブに緑のチェックマークが入っていれば成功です。
+
+image::1.04.jpg[]
+
+Run a one-line scriptを開くとHello, world!と出力されているのが確認できます。
+
+では実際にローカルレポジトリからリモートレポジトリにpushした時にHello, world!と出力されるのか確認してみましょう。
+
