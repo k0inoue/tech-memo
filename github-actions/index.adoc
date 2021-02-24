@@ -3,7 +3,6 @@
 これはGithub Actionについて記載された技術メモです。
 
 == Github Action
-　Github Actionについての詳細はDockerフォルダ配下のIndex(目次)をご覧ください。
 
-* aaaaaaaa
+* Github Actionとは ( github-actions.html )
 * bbbbbbbb

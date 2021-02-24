@@ -1,0 +1,37 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:docname: = asciidocの使い方
+:author: 株式会社エフェクト ロボット開発チーム
+:revnumber: 0.1
+:revdate: 2021/01/18
+
+
+= Github Actionとは
+
+== Github Actionとは
+
+GitHub Actionsは、ほかのCI/CDツールと同様、リポジトリに対するプッシュやプルリクエストといった操作、もしくは指定した時刻になるといったイベントをトリガーとして、あらかじめ定義しておいた処理を実行する機能・たとえばリポジトリにコミットが行われた際に特定の処理を実行したり、毎日決まった時刻に特定の処理を実行するといったことを実現可能。
+
+=== Workflowとは
+GitHub Actionsでは、実行する処理とその処理を実行する条件を定義したものを「Workflow（ワークフロー）」と呼ぶ。
+
+=== Github Actionの実行方法
+リポジトリ内の.github/workflowsディレクトリ内に、YAML形式で記述したワークフローを作成することで実行できるようになる。
+
+== Github Actionで出来ること
+
+
+
+
