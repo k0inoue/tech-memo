@@ -1,0 +1,33 @@
+////
+authorに氏名や会社名等記載
+revdateに作成日を記載
+revnumberは0.1としているが好きに変更してもよし
+その他は適宜追加してよし
+////
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:icons: font
+:docname: description
+:author:
+:revnumber: 0.1
+:revdate:
+
+= 大項目
+
+////
+このadocファイルで記載する内容を大項目とする
+大項目の概要について記載すると良き
+////
+
+== 中項目
+
+////
+大項目内で分類される内容を中項目とする
+また、その内容について記載する
+中項目以降については各自のスタイルに任せる
+////
