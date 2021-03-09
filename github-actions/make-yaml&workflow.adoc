@@ -28,7 +28,7 @@
 == YAMLファイルの作成とワークフローの実行
 まずはGitHub Accountにログインして新しくリポジトリを作成します。
 
-image::1.01.jpg[]
+image::https://user-images.githubusercontent.com/63769236/110417244-91107c00-80d8-11eb-86d9-2fc345cfd6d2.jpg[]
 
 作成したリポジトリに行き、Actionsを選択。
 
