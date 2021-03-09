@@ -1,0 +1,89 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:docname: = asciidocの使い方
+:author: 株式会社エフェクト ロボット開発チーム
+:revnumber: 0.2
+:revdate: 2021/03/09
+
+
+= GitHub Actionの実行トリガと
+
+== はじめに
+　GitHub Actionは様々なイベントをトリガとしてワークフローを実行することができます。
+　ここではその一覧と一部のイベントの実行方法について記載します。
+　
+
+== Runで定義するトリガーの一覧
+|====
+| 項目 | トリガー条件
+|check_run | Checkが走ってcreated, rerequested, requested_actionになったら
+|check_suite| Check runの集合で、ステータスがcompleted, requested, rerequestedになったら
+|commit_comment | コミットコメントがcreatedになったらトリガー
+|create | ブランチやタグが作られたら
+|delete | ブランチやタグが削除されたら
+|deployment | APIを通してデプロイメントが作られたら
+|deployment_status | デプロイメントステータスが更新されたら
+|fork | リポジトリがフォークされたら
+|gollum | Wikiページがアップデートされたら
+|issue_comment | Issueにコメントがcreated、editedかdeletedされたら
+|issues | Issueがassigned, unassigned, labeled, unlabeled, opened, edited, milestoned, demilestoned, closed, reopenedされたら
+|label | ラベルがcreated, edited, deletedしたら
+|member | メンバーが招待、削除に追加されたり権限が変わったら
+|milestone |	マイルストーンがcreated, closed, opened, editedかdeleted`されたら
+|page_build | ページサイトがbuiltされたり失敗されたら
+|project_card | Project Cardがcreated、edited, moved, Issueにconvertedかdeletedされたら
+|project_column | Project Columnがcreated, edited, movedかdeletedされたら
+|project | Projectがcreated, edited, closed、reopenend, deletedされたら
+|public | リポジトリがPrivateからPublicに変わったら
+|pull_request_review_comment | Pull requestにreviewコメントがついたら
+|pull_request_review | Pull requestがreviewされたら
+|pull_request | Pull requestがassigned, openedなどしたら(多すぎて省略します)
+| [red]*push* | tagやコミットがpushされたら
+|repository_vulnerability_alert | vulnerability alertが通知されたら
+|release | リリースが作成されたら
+|repository_dispatch | 他のユーザーがアプリのイベントをトリガごとに
+|status | リポジトリステータスがAPIによって変更されたら
+| [red]*schedule* | スケージューリングされた時間ごとに
+|watch | ユーザーがリポジトリがStarされたら
+| [red]*workflow_dispatch* | 手動実行
+|====
+[red]*赤字* はよく使うもの
+
+== workflow_dispatchの実行方法について
+
+=== workflow_dispatchとは
+　workflow_dispatchとは該当のGitHubActionを好きなタイミングで動かす方法のことです。
+
+=== workflow_dispatchの定義方法
+====
+on: [blue]*workflow_dispatch*
+====
+onの項目にはpushなど他のイベントと変更して記載することもできます。
+詳細はlink:https://docs.github.com/ja/actions/reference/events-that-trigger-workflows[ワークフローをトリガーするイベント]をご覧ください。
+
+=== workflow_dispatchの実行方法
+. Actionsの該当のワークフロー名をクリックする
+. 過去に実行結果の上に [blue]*青枠* で『This workflow has a workflow_dispatch event trigger』と記載されている箇所があるので、その右側の [red]*Run workflow* をクリックする
+image:https://user-images.githubusercontent.com/63769236/110427621-624fd100-80eb-11eb-9c09-ac995d734412.png[]
+
+. ブランチを選択して [green]*Run workflow* をクリックする
+
+image:https://user-images.githubusercontent.com/63769236/110427624-62e86780-80eb-11eb-96c2-918b6338df39.png[]
+
+== 参考リンク
+
+link:https://qiita.com/1915keke/items/8b18097d2981e88eca93[Github Actionsが使えるようになったので使ってみる]
+
+link:https://docs.github.com/ja/actions/reference/events-that-trigger-workflows[ワークフローをトリガーするイベント]

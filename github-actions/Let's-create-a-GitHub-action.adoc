@@ -14,8 +14,8 @@
 :figure-caption: 図
 :docname: = asciidocの使い方
 :author: 株式会社エフェクト ロボット開発チーム
-:revnumber: 0.1
-:revdate: 2021/02/24
+:revnumber: 0.2
+:revdate: 2021/03/09
 
 
 = GitHub Actionに触れてみよう
