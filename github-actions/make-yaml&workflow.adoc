@@ -32,11 +32,11 @@ image::https://user-images.githubusercontent.com/63769236/110417244-91107c00-80d
 
 作成したリポジトリに行き、Actionsを選択。
 
-image::1.02.jpg[]
+image::https://user-images.githubusercontent.com/63769236/110417775-78549600-80d9-11eb-8ef1-0bab70dda3df.jpg[]
 
 色々ワークフローが表示されるので、一番上のSimple workflowを選択。
 
-image::1.03.jpg[]
+image::https://user-images.githubusercontent.com/63769236/110417778-78ed2c80-80d9-11eb-8ae2-b5c861ba9181.jpg[]
 
 リポジトリの.github/workflows/配下にYAMLファイルが作成されます。
 
@@ -63,7 +63,7 @@ YAMLファイルができたら 画面右上にある [green]*start commit* を�
 左画面のAll Workflowsの下に先ほど実行したワークフローがあるので、クリックしてbuildを選択。
 全てのジョブに緑のチェックマークが入っていれば成功です。
 
-image::1.04.jpg[]
+image::https://user-images.githubusercontent.com/63769236/110417779-7985c300-80d9-11eb-8824-920f753c4322.jpg[]
 
 Run a one-line scriptを開くとHello, world!と出力されているのが確認できます。
 
@@ -83,13 +83,11 @@ $ git [red]*clone* https://github.com/***/github_actions.git
 
 こんな感じのディレクトリ構成になっているかと思います。
 ====
-
-github_actions
-├── .github
-│   └── workflows
-│       └── blank.yml
-└── README.md
-
+github_actions +
+├── .github +
+│   └── workflows +
+│       └── blank.yml +
+└── README.md +
 ====
 
 先ほど実行したワークフロー名と区別するためにblank.ymlのワークフロー名とechoで出力させるものを変更しておきます。 ここではワークフロー名と出力する言葉をGood eveningにしておきます。
@@ -111,7 +109,7 @@ $ git push origin master
 
 GitHubのリポジトリのActionsにいき、good eveningが表示されており、全てに緑色のチェックマークがついていれば成功です。 
 
-image::2.01.jpg[]
+image::https://user-images.githubusercontent.com/63769236/110417780-7985c300-80d9-11eb-8b01-fc16e38c1ad6.jpg[]
 
 Run a one-line scriptを開いてgood eveningが出力されているか確認してみてください。
 
