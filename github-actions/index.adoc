@@ -4,5 +4,5 @@
 
 == Github Action
 
-* Github Actionとは ( github-actions.html )
-* bbbbbbbb
+* link:github-actions.html[GitHub Actionとは]
+* link:make-yaml&workflow.html[GitHub Actionに触れてみよう]

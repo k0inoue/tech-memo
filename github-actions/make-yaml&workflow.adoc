@@ -18,7 +18,7 @@
 :revdate: 2021/02/24
 
 
-= YAMLファイルの作成とワークフローの実行について
+= GitHub Actionに触れてみよう
 
 == はじめに
 
@@ -26,11 +26,11 @@
 以下にオンライン上でYAMLファイルを作成する手順を示す。
 
 == YAMLファイルの作成とワークフローの実行
-まずはGitHub Accountにログインして新しくレポジトリを作成します。
+まずはGitHub Accountにログインして新しくリポジトリを作成します。
 
 image::1.01.jpg[]
 
-作成したレポジトリに行き、Actionsを選択。
+作成したリポジトリに行き、Actionsを選択。
 
 image::1.02.jpg[]
 
@@ -38,7 +38,7 @@ image::1.02.jpg[]
 
 image::1.03.jpg[]
 
-レポジトリの.github/workflows/配下にYAMLファイルが作成されます。
+リポジトリの.github/workflows/配下にYAMLファイルが作成されます。
 
 デフォルトのYAMLファイルだと初心者にとっては難しく感じると思うので、一旦コメントと今回必要ではない部分を消して、もう少しシンプルにしてみます。
 
@@ -59,7 +59,7 @@ include::./blank copy.yml[]
 
 YAMLファイルができたら 画面右上にある [green]*start commit* をクリックして、ジョブを実行してみましょう。
 
-ワークフローが実行されたかどうかはレポジトリのActionsで確認することができます。
+ワークフローが実行されたかどうかはリポジトリのActionsで確認することができます。
 左画面のAll Workflowsの下に先ほど実行したワークフローがあるので、クリックしてbuildを選択。
 全てのジョブに緑のチェックマークが入っていれば成功です。
 
@@ -67,5 +67,61 @@ image::1.04.jpg[]
 
 Run a one-line scriptを開くとHello, world!と出力されているのが確認できます。
 
-では実際にローカルレポジトリからリモートレポジトリにpushした時にHello, world!と出力されるのか確認してみましょう。
+では実際にローカルリポジトリからリモートリポジトリにpushした時にHello, world!と出力されるのか確認してみましょう。
 
+== ローカルリポジトリからpush
+作成したワークフローがpushイベントで実行されるのか確認してみます。
+
+先ほど作成したリポジトリ（~/github_actions）をローカル環境にクローンします。
+
+====
+
+$ git [red]*clone* https://github.com/***/github_actions.git
+
+====
+　　*は自分自身のGithubのユーザー名
+
+こんな感じのディレクトリ構成になっているかと思います。
+====
+
+github_actions
+├── .github
+│   └── workflows
+│       └── blank.yml
+└── README.md
+
+====
+
+先ほど実行したワークフロー名と区別するためにblank.ymlのワークフロー名とechoで出力させるものを変更しておきます。 ここではワークフロー名と出力する言葉をGood eveningにしておきます。
+
+* github_actions/.github/workflows/blank.yml 
+
+[source,yaml]
+----
+include::./blank2.yml[]
+----
+
+それではpushしてみましょう。
+
+====
+$ git add .
+$ git commit -m "test"
+$ git push origin master
+====
+
+GitHubのリポジトリのActionsにいき、good eveningが表示されており、全てに緑色のチェックマークがついていれば成功です。 
+
+image::2.01.jpg[]
+
+Run a one-line scriptを開いてgood eveningが出力されているか確認してみてください。
+
+== 参考サイト
+
+link:https://developer.yukimonkey.com/article/20200422/#h2_1[GitHub Actionsとは何か？簡単に触って使い方を学ぼう]
+
+link:https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions[Git Hub Actionsのワークフリー構文]
+
+== まとめ
+今回GitHub Actionsを使って特定のイベントが発生した時にワークフローを自動で実行してみました。
+
+今回は初めてだったので、オンライン上でyamlファイルを作って実行しましたが、 リポジトリに.git/workflows/の下にyamlファイルを作成するだけでGitHub Actionsを使うことができます。
