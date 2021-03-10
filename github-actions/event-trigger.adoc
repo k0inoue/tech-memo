@@ -22,8 +22,7 @@
 
 == はじめに
 　GitHub Actionは様々なイベントをトリガとしてワークフローを実行することができます。
-　ここではその一覧と一部のイベントの実行方法について記載します。
-　
+　ここではその一覧と使用頻度の高いと思われるイベントトリガの記載方法と実行方法について記載します。
 
 == Runで定義するトリガーの一覧
 |====
@@ -61,7 +60,40 @@
 |====
 [red]*赤字* はよく使うもの
 
-== workflow_dispatchの実行方法について
+== pushイベント時のGitHubAction実行時について
+=== pushイベント時のGitHubAction実行とは
+　特定のブランチなどにファイルがPushされたタイミングでGitHub　Actionを実行することです。
+=== pushイベントの定義方法　
+====
+on: [blue]*push*
+====
+=== pushイベントで指定できるオプションについて
+* branches 特定のブランチにPushされたときだけ実行する +
+* tags 特定のタグがPushされたときのみ実行する +
+* paths 特定のパスにPushされたときにのみ実行する +
+
+[NOTE]
+====
+-ignoreをつけることでその場合を除くということも可能ですが、branchesとtagsについては併用はできません。pathsについてはおそらく併用可能です。
+====
+====
+　[grren]*on*: +
+　　[grren]*push: +
+　　　[grren]*branches*: +
+　　　　- master +
+　　　　- 'releases/**' + 
+　　　　- '!releases/**-alpha' # alpha版は含めない +
+　　[grren]*tags*: +
+　　　　- v1 +
+　　# file paths to consider in the event. Optional; defaults to all. +
+　　[grren]*paths*: +
+　　　- 'test/*' +
+　　[grren]*paths-ignore*: +
+　　　- 'docs/**' +
+====
+
+
+== workflow_dispatchについて
 
 === workflow_dispatchとは
 　workflow_dispatchとは該当のGitHubActionを好きなタイミングで動かす方法のことです。
