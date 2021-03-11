@@ -78,17 +78,17 @@ on: [blue]*push*
 ====
 ====
 　[grren]*on*: +
-　　[grren]*push: +
-　　　[grren]*branches*: +
+　　[grren]*push* : +
+　　　[grren]*branches* : +
 　　　　- master +
 　　　　- 'releases/**' + 
 　　　　- '!releases/**-alpha' # alpha版は含めない +
-　　[grren]*tags*: +
+　　[grren]*tags* : +
 　　　　- v1 +
 　　# file paths to consider in the event. Optional; defaults to all. +
-　　[grren]*paths*: +
+　　[grren]*paths* : +
 　　　- 'test/*' +
-　　[grren]*paths-ignore*: +
+　　[grren]*paths-ignore* : +
 　　　- 'docs/**' +
 ====
 

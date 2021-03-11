@@ -22,19 +22,19 @@
 
 == はじめに
 
-　.git/workflows/にYAMLファイルを作成するだけでGitHub Actionsを使用することが可能。
-以下にオンライン上でYAMLファイルを作成する手順を示す。
+　.git/workflows/にYAMLファイルを作成するだけでGitHub Actionsを使用することが可能です。
+以下にオンライン上でYAMLファイルを作成する手順を示します。
 
 == YAMLファイルの作成とワークフローの実行
 まずはGitHub Accountにログインして新しくリポジトリを作成します。
 
 image::https://user-images.githubusercontent.com/63769236/110417244-91107c00-80d8-11eb-86d9-2fc345cfd6d2.jpg[]
 
-作成したリポジトリに行き、Actionsを選択。
+作成したリポジトリに行き、Actionsを選択します。
 
 image::https://user-images.githubusercontent.com/63769236/110417775-78549600-80d9-11eb-8ef1-0bab70dda3df.jpg[]
 
-色々ワークフローが表示されるので、一番上のSimple workflowを選択。
+色々ワークフローが表示されるので、一番上のSimple workflowを選択します。
 
 image::https://user-images.githubusercontent.com/63769236/110417778-78ed2c80-80d9-11eb-8ae2-b5c861ba9181.jpg[]
 
@@ -60,7 +60,7 @@ include::./blank copy.yml[]
 YAMLファイルができたら 画面右上にある [green]*start commit* をクリックして、ジョブを実行してみましょう。
 
 ワークフローが実行されたかどうかはリポジトリのActionsで確認することができます。
-左画面のAll Workflowsの下に先ほど実行したワークフローがあるので、クリックしてbuildを選択。
+左画面のAll Workflowsの下に先ほど実行したワークフローがあるので、クリックしてbuildを選択します。
 全てのジョブに緑のチェックマークが入っていれば成功です。
 
 image::https://user-images.githubusercontent.com/63769236/110417779-7985c300-80d9-11eb-8824-920f753c4322.jpg[]
